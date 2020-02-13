@@ -1,6 +1,13 @@
 package com.minesweeper;
 
 public class Board {
-    public Board(String initialBoardState) {
+    private String state;
+
+    public Board(String state) {
+        this.state = state;
+    }
+
+    public String toString() {
+        return state;
     }
 }

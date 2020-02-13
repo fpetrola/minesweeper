@@ -28,11 +28,7 @@ public class Board {
         squares.stream().forEach(s -> s.hide());
     }
 
-    public boolean thereIsMineAt(int row, int column) {
-        return getSquareAt(row, column).isMine();
-    }
-
-    private Square getSquareAt(int row, int column) {
+    public Square getSquareAt(int row, int column) {
         return squares.get(row * columns + column);
     }
 

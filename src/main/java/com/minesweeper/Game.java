@@ -8,7 +8,7 @@ public class Game {
     }
 
     public void revealSquareAt(int row, int column) {
-        if (board.thereIsMineAt(row, column)) {
+        if (board.getSquareAt(row, column).isMine()) {
             board.showAll();
         }
     }

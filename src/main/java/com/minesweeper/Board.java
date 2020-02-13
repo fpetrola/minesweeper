@@ -1,6 +1,7 @@
 package com.minesweeper;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -20,11 +21,19 @@ public class Board {
             }
         }
 
-        squares.stream().forEach(s-> s.setAdjacentSquares(getAdjacentSquaresOf(s)));
+        squares.stream().forEach(s -> s.setAdjacentSquares(getAdjacentSquaresOf(s)));
     }
 
     private Set<Square> getAdjacentSquaresOf(Square square) {
-        return null;
+        Set<Square> adjacentSquares = new HashSet<>();
+
+        int row = square.getRow() - 1;
+        int column = square.getColumn() - 1;
+
+        if (row >= 0 && column >= 0 && row < rows && column < columns)
+            adjacentSquares.add(getSquareAt(row, column));
+
+        return adjacentSquares;
     }
 
     public String toString() {

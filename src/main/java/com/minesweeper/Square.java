@@ -1,6 +1,5 @@
 package com.minesweeper;
 
-import java.util.Arrays;
 import java.util.Set;
 
 public class Square {
@@ -46,5 +45,13 @@ public class Square {
 
     public void setAdjacentSquares(Set<Square> adjacentSquares) {
         this.adjacentSquares = adjacentSquares;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getColumn() {
+        return column;
     }
 }

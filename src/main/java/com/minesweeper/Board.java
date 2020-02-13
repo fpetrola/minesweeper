@@ -22,7 +22,11 @@ public class Board {
     }
 
     public boolean thereIsMineAt(int row, int column) {
-        return state.charAt(row * columns + column) == 'X';
+        return getSquareValueAt(row, column) == 'X';
+    }
+
+    private char getSquareValueAt(int row, int column) {
+        return state.charAt(row * columns + column);
     }
 
     public void showAll() {

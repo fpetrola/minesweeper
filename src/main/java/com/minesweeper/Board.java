@@ -2,6 +2,7 @@ package com.minesweeper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Board {
@@ -18,6 +19,12 @@ public class Board {
                 squares.add(new Square(row, column, state.charAt(row * this.columns + column)));
             }
         }
+
+        squares.stream().forEach(s-> s.setAdjacentSquares(getAdjacentSquaresOf(s)));
+    }
+
+    private Set<Square> getAdjacentSquaresOf(Square square) {
+        return null;
     }
 
     public String toString() {

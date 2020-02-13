@@ -8,6 +8,7 @@ public class Square {
     private final int column;
     private char value;
     private boolean hidden;
+    private Set<Square> adjacentSquares;
 
     public Square(int row, int column, char value) {
         this.row = row;
@@ -36,10 +37,14 @@ public class Square {
     }
 
     public Set<Square> getAdjacentSquares() {
-        return null;
+        return adjacentSquares;
     }
 
     public void setValue(char value) {
         this.value = value;
+    }
+
+    public void setAdjacentSquares(Set<Square> adjacentSquares) {
+        this.adjacentSquares = adjacentSquares;
     }
 }

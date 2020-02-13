@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 public class Board {
     private final List<Square> squares = new ArrayList<Square>();
-    private String state;
     private final int rows;
     private final int columns;
     private String stringRepresentation;
@@ -22,7 +21,6 @@ public class Board {
         }
 
         this.stringRepresentation = getStringRepresentation();
-        this.state = stringRepresentation;
     }
 
     private String getStringRepresentation() {
@@ -34,11 +32,11 @@ public class Board {
     }
 
     public void hideSquares() {
-        stringRepresentation = state.replace("X", ".");
+        stringRepresentation = getStringRepresentation().replace("X", ".");
     }
 
     public boolean thereIsMineAt(int row, int column) {
-        return getSquareValueAt(row, column, state) == 'X';
+        return getSquareValueAt(row, column, getStringRepresentation()) == 'X';
     }
 
     private char getSquareValueAt(int row, int column, String state) {
@@ -46,6 +44,6 @@ public class Board {
     }
 
     public void showAll() {
-        stringRepresentation = state;
+        stringRepresentation = getStringRepresentation();
     }
 }

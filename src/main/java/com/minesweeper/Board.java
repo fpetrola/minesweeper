@@ -29,7 +29,11 @@ public class Board {
     }
 
     public boolean thereIsMineAt(int row, int column) {
-        return squares.get(row * columns + column).isMine();
+        return getSquareAt(row, column).isMine();
+    }
+
+    private Square getSquareAt(int row, int column) {
+        return squares.get(row * columns + column);
     }
 
     public void showAll() {

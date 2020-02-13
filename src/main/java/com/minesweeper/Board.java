@@ -28,6 +28,13 @@ public class Board {
         Set<Square> adjacentSquares = new HashSet<>();
 
         addAdjacentSquare(square, adjacentSquares, -1, -1);
+        addAdjacentSquare(square, adjacentSquares, -1, 0);
+        addAdjacentSquare(square, adjacentSquares, -1, 1);
+        addAdjacentSquare(square, adjacentSquares, 0, -1);
+        addAdjacentSquare(square, adjacentSquares, 0, 1);
+        addAdjacentSquare(square, adjacentSquares, 1, -1);
+        addAdjacentSquare(square, adjacentSquares, 1, 0);
+        addAdjacentSquare(square, adjacentSquares, 1, 1);
 
         return adjacentSquares;
     }

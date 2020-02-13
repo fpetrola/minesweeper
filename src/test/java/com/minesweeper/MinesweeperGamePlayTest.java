@@ -11,7 +11,7 @@ public class MinesweeperGamePlayTest {
                         "X.." +
                         "..X" ;
 
-        Board board = new Board(initialBoardState);
+        Board board = new Board(initialBoardState, 3, 3);
 
         Assert.assertEquals(initialBoardState, board.toString());
     }
@@ -28,9 +28,31 @@ public class MinesweeperGamePlayTest {
                         "..." +
                         "..." ;
 
-        Board board = new Board(initialBoardState);
+        Board board = new Board(initialBoardState, 3, 3);
         board.hideSquares();
 
         Assert.assertEquals(hiddenBoardState, board.toString());
+    }
+
+
+    @Test
+    public void revealingMineSquareShowsAllSquares() {
+        String initialBoardState=
+                        ".X." +
+                        "X.." +
+                        "..X" ;
+
+        String hiddenBoard=
+                        ".X." +
+                        "X.." +
+                        "..X" ;
+
+        Board board= new Board(initialBoardState, 3, 3);
+        board.hideSquares();
+
+        Game game = new Game(board);
+        game.revealSquareAt(0, 1);
+
+        Assert.assertEquals(hiddenBoard, board.toString());
     }
 }

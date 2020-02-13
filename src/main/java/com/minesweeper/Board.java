@@ -3,7 +3,7 @@ package com.minesweeper;
 public class Board {
     private String state;
 
-    public Board(String state) {
+    public Board(String state, int rows, int columns) {
         this.state = state;
     }
 

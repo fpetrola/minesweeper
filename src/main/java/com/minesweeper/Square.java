@@ -23,4 +23,8 @@ public class Square {
     public void show() {
         hidden= false;
     }
+
+    public boolean isMine() {
+        return getValue() == 'X';
+    }
 }

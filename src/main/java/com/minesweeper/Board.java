@@ -32,12 +32,12 @@ public class Board {
     }
 
     public void hideSquares() {
-        squares.stream().forEach(s-> s.hide());
+        squares.stream().forEach(s -> s.hide());
         stringRepresentation = getStringRepresentation();
     }
 
     public boolean thereIsMineAt(int row, int column) {
-        return getSquareValueAt(row, column, getStringRepresentation()) == 'X';
+        return squares.get(row * columns + column).getValue() == 'X';
     }
 
     private char getSquareValueAt(int row, int column, String state) {
@@ -45,7 +45,7 @@ public class Board {
     }
 
     public void showAll() {
-        squares.stream().forEach(s-> s.show());
+        squares.stream().forEach(s -> s.show());
 
         stringRepresentation = getStringRepresentation();
     }

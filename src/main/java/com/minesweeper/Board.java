@@ -27,14 +27,14 @@ public class Board {
     private Set<Square> getAdjacentSquaresOf(Square square) {
         Set<Square> adjacentSquares = new HashSet<>();
 
-        addAdjacentSquare(square, adjacentSquares);
+        addAdjacentSquare(square, adjacentSquares, -1, -1);
 
         return adjacentSquares;
     }
 
-    private void addAdjacentSquare(Square square, Set<Square> adjacentSquares) {
-        int row = square.getRow() + (-1);
-        int column = square.getColumn() + (-1);
+    private void addAdjacentSquare(Square square, Set<Square> adjacentSquares, int y, int x) {
+        int row = square.getRow() + y;
+        int column = square.getColumn() + x;
 
         if (row >= 0 && column >= 0 && row < rows && column < columns)
             adjacentSquares.add(getSquareAt(row, column));

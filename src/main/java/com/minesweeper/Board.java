@@ -12,6 +12,6 @@ public class Board {
     }
 
     public void hideSquares() {
-
+        state= state.replace("X", ".");
     }
 }

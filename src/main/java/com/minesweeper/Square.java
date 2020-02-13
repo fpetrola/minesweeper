@@ -4,6 +4,7 @@ public class Square {
     private final int row;
     private final int column;
     private final char value;
+    private boolean hidden;
 
     public Square(int row, int column, char value) {
         this.row = row;
@@ -12,6 +13,14 @@ public class Square {
     }
 
     public char getValue() {
-        return value;
+        return hidden ? '.' : value;
+    }
+
+    public void hide() {
+        hidden = true;
+    }
+
+    public void show() {
+        hidden= false;
     }
 }

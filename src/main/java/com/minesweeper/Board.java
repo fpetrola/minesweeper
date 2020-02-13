@@ -32,7 +32,8 @@ public class Board {
     }
 
     public void hideSquares() {
-        stringRepresentation = getStringRepresentation().replace("X", ".");
+        squares.stream().forEach(s-> s.hide());
+        stringRepresentation = getStringRepresentation();
     }
 
     public boolean thereIsMineAt(int row, int column) {
@@ -44,6 +45,8 @@ public class Board {
     }
 
     public void showAll() {
+        squares.stream().forEach(s-> s.show());
+
         stringRepresentation = getStringRepresentation();
     }
 }

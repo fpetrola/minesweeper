@@ -15,4 +15,22 @@ public class MinesweeperGamePlayTest {
 
         Assert.assertEquals(initialBoardState, board.toString());
     }
+
+    @Test
+    public void boardSquaresCanBeHide() {
+        String initialBoardState=
+                        ".X." +
+                        "X.." +
+                        "..X" ;
+
+        String hiddenBoardState=
+                        "..." +
+                        "..." +
+                        "..." ;
+
+        Board board = new Board(initialBoardState);
+        board.hideSquares();
+
+        Assert.assertEquals(hiddenBoardState, board.toString());
+    }
 }

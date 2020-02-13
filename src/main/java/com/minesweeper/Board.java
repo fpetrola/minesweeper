@@ -10,4 +10,8 @@ public class Board {
     public String toString() {
         return state;
     }
+
+    public void hideSquares() {
+
+    }
 }

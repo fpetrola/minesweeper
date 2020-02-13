@@ -25,6 +25,6 @@ public class Square {
     }
 
     public boolean isMine() {
-        return getValue() == 'X';
+        return value == 'X';
     }
 }

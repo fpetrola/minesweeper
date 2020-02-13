@@ -33,8 +33,8 @@ public class Board {
     }
 
     private void addAdjacentSquare(Square square, Set<Square> adjacentSquares) {
-        int row = square.getRow() - 1;
-        int column = square.getColumn() - 1;
+        int row = square.getRow() + (-1);
+        int column = square.getColumn() + (-1);
 
         if (row >= 0 && column >= 0 && row < rows && column < columns)
             adjacentSquares.add(getSquareAt(row, column));

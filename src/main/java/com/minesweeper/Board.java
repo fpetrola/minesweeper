@@ -21,8 +21,12 @@ public class Board {
             }
         }
 
-        this.stringRepresentation = squares.stream().map(s -> s.getValue() + "").collect(Collectors.joining());
+        this.stringRepresentation = getStringRepresentation();
         this.state = stringRepresentation;
+    }
+
+    private String getStringRepresentation() {
+        return squares.stream().map(s -> s.getValue() + "").collect(Collectors.joining());
     }
 
     public String toString() {

@@ -18,7 +18,7 @@ public class Board {
 
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
-                squares.add(new Square(row, column, getSquareValueAt(row, column)));
+                squares.add(new Square(row, column, getSquareValueAt(row, column, state)));
             }
         }
 
@@ -34,10 +34,10 @@ public class Board {
     }
 
     public boolean thereIsMineAt(int row, int column) {
-        return getSquareValueAt(row, column) == 'X';
+        return getSquareValueAt(row, column, state) == 'X';
     }
 
-    private char getSquareValueAt(int row, int column) {
+    private char getSquareValueAt(int row, int column, String state) {
         return state.charAt(row * columns + column);
     }
 

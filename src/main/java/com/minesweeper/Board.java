@@ -12,7 +12,6 @@ public class Board {
     private String stringRepresentation;
 
     public Board(String state, int rows, int columns) {
-        this.state = state;
         this.rows = rows;
         this.columns = columns;
 
@@ -23,6 +22,7 @@ public class Board {
         }
 
         this.stringRepresentation = squares.stream().map(s -> s.getValue() + "").collect(Collectors.joining());
+        this.state = stringRepresentation;
     }
 
     public String toString() {

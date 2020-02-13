@@ -1,9 +1,12 @@
 package com.minesweeper;
 
+import java.util.Arrays;
+import java.util.Set;
+
 public class Square {
     private final int row;
     private final int column;
-    private final char value;
+    private char value;
     private boolean hidden;
 
     public Square(int row, int column, char value) {
@@ -26,5 +29,17 @@ public class Square {
 
     public boolean isMine() {
         return value == 'X';
+    }
+
+    public boolean isHidden() {
+        return hidden;
+    }
+
+    public Set<Square> getAdjacentSquares() {
+        return null;
+    }
+
+    public void setValue(char value) {
+        this.value = value;
     }
 }

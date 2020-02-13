@@ -2,6 +2,7 @@ package com.minesweeper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Board {
     private final List<Square> squares = new ArrayList<Square>();
@@ -14,13 +15,14 @@ public class Board {
         this.state = state;
         this.rows = rows;
         this.columns = columns;
-        this.stringRepresentation = state;
 
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
                 squares.add(new Square(row, column, getSquareValueAt(row, column)));
             }
         }
+
+        this.stringRepresentation = squares.stream().map(s -> s.getValue() + "").collect(Collectors.joining());
     }
 
     public String toString() {

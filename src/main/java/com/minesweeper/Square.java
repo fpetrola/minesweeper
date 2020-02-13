@@ -17,7 +17,7 @@ public class Square {
     }
 
     public char getValue() {
-        return flag ? 'F' : (hidden ? '.' : value);
+        return flag ? '?' : (hidden ? '.' : value);
     }
 
     public void hide() {

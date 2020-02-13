@@ -8,6 +8,7 @@ public class Game {
 
     public Game(Board board) {
         this.board = board;
+        this.board.hideSquares();
     }
 
     public void revealSquareAt(int row, int column) {

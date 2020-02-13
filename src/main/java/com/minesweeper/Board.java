@@ -15,17 +15,13 @@ public class Board {
 
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
-                squares.add(new Square(row, column, getSquareValueAt(row, column, state)));
+                squares.add(new Square(row, column, state.charAt(row * this.columns + column)));
             }
         }
     }
 
-    private String getStringRepresentation() {
-        return squares.stream().map(s -> s.getValue() + "").collect(Collectors.joining());
-    }
-
     public String toString() {
-        return getStringRepresentation();
+        return squares.stream().map(s -> s.getValue() + "").collect(Collectors.joining());
     }
 
     public void hideSquares() {
@@ -33,12 +29,7 @@ public class Board {
     }
 
     public boolean thereIsMineAt(int row, int column) {
-        Square square = squares.get(row * columns + column);
-        return square.isMine();
-    }
-
-    private char getSquareValueAt(int row, int column, String state) {
-        return state.charAt(row * columns + column);
+        return squares.get(row * columns + column).isMine();
     }
 
     public void showAll() {

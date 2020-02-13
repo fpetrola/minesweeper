@@ -4,6 +4,7 @@ import java.util.Set;
 
 public class Game {
     private Board board;
+    private boolean over;
 
     public Game(Board board) {
         this.board = board;
@@ -13,6 +14,7 @@ public class Game {
         Square square = board.getSquareAt(row, column);
         if (square.isMine()) {
             board.showAll();
+            over= true;
         } else
             revealAdjacentSquares(square);
     }
@@ -30,5 +32,9 @@ public class Game {
             } else
                 square.setValue(Character.forDigit((int) count, 10));
         }
+    }
+
+    public boolean isOver() {
+        return over;
     }
 }

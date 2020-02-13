@@ -12,11 +12,12 @@ public class Game {
 
     public void revealSquareAt(int row, int column) {
         Square square = board.getSquareAt(row, column);
-        if (square.isMine()) {
-            board.showAll();
-            over= true;
-        } else
-            revealAdjacentSquares(square);
+        if (!square.hasFlag())
+            if (square.isMine()) {
+                board.showAll();
+                over = true;
+            } else
+                revealAdjacentSquares(square);
     }
 
     private void revealAdjacentSquares(Square square) {
@@ -36,5 +37,10 @@ public class Game {
 
     public boolean isOver() {
         return over;
+    }
+
+    public void flagSquareAt(int row, int column) {
+        Square squareAt = board.getSquareAt(row, column);
+        squareAt.setFlag(true);
     }
 }

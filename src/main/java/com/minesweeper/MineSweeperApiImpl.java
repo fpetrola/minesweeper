@@ -34,4 +34,10 @@ public class MineSweeperApiImpl implements MineSweeperApi {
         return game.isOver();
     }
 
+    @Override
+    public void flagSquareAt(int row, int column, int gameId) {
+        Game game= gameRepository.findGameById(gameId);
+        game.flagSquareAt(row, column);
+    }
+
 }

@@ -34,5 +34,15 @@ public interface MineSweeperApi {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "", response = boolean.class)})
     public boolean isOver(int gameId);
+
+
+    @GET
+    @Path("/flag/{gameId}/{row}/{column}")
+    @Produces({"application/json"})
+    @ApiOperation(value = "flag square", tags = {"flag",})
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "", response = Void.class)})
+    public void flagSquareAt(@PathParam("row") int row, @PathParam("column") int column, @PathParam("gameId") int gameId);
+
 }
 

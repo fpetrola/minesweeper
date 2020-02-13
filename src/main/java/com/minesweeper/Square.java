@@ -8,6 +8,7 @@ public class Square {
     private char value;
     private boolean hidden;
     private Set<Square> adjacentSquares;
+    private boolean flag;
 
     public Square(int row, int column, char value) {
         this.row = row;
@@ -16,7 +17,7 @@ public class Square {
     }
 
     public char getValue() {
-        return hidden ? '.' : value;
+        return flag ? 'F' : (hidden ? '.' : value);
     }
 
     public void hide() {
@@ -24,7 +25,7 @@ public class Square {
     }
 
     public void show() {
-        hidden= false;
+        hidden = false;
     }
 
     public boolean isMine() {
@@ -53,5 +54,13 @@ public class Square {
 
     public int getColumn() {
         return column;
+    }
+
+    public boolean hasFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
     }
 }

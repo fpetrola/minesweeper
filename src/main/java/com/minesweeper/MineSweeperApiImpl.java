@@ -28,4 +28,10 @@ public class MineSweeperApiImpl implements MineSweeperApi {
         }
         return s.toString();
     }
+
+    public boolean isOver(int gameId) {
+        Game game= gameRepository.findGameById(gameId);
+        return game.isOver();
+    }
+
 }

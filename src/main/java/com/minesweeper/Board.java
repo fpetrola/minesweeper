@@ -37,7 +37,12 @@ public class Board {
     }
 
     public boolean thereIsMineAt(int row, int column) {
-        return squares.get(row * columns + column).getValue() == 'X';
+        Square square = squares.get(row * columns + column);
+        return isMine(square);
+    }
+
+    public boolean isMine(Square square) {
+        return square.getValue() == 'X';
     }
 
     private char getSquareValueAt(int row, int column, String state) {

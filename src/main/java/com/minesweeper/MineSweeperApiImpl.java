@@ -14,6 +14,11 @@ public class MineSweeperApiImpl implements MineSweeperApi {
         gameRepository.save(game);
     }
 
+    public void revealSquareAt(int row, int column, int gameId) {
+        Game game= gameRepository.findGameById(gameId);
+        game.revealSquareAt(row, column);
+    }
+
     private String createRandomBoardDefinition(int rows, int columns) {
         char[] array = new char[rows * columns];
         Arrays.fill(array, '.');

@@ -1,4 +1,4 @@
-package com.minesweeper;
+package com.minesweeper.model;
 
 import java.util.Set;
 
@@ -43,5 +43,9 @@ public class Game {
     public void flagSquareAt(int row, int column) {
         Square squareAt = board.getSquareAt(row, column);
         squareAt.setFlag(true);
+    }
+
+    public Board getBoard() {
+        return board;
     }
 }

@@ -1,5 +1,8 @@
-package com.minesweeper;
+package com.minesweeper.config;
 
+import com.minesweeper.api.MineSweeperApi;
+import com.minesweeper.api.MineSweeperApiImpl;
+import com.minesweeper.model.GameRepository;
 import org.apache.cxf.endpoint.Server;
 import org.apache.cxf.jaxrs.validation.ValidationExceptionMapper;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

@@ -1,4 +1,8 @@
-package com.minesweeper;
+package com.minesweeper.api;
+
+import com.minesweeper.model.Board;
+import com.minesweeper.model.Game;
+import com.minesweeper.model.GameRepository;
 
 import java.util.Arrays;
 
@@ -9,13 +13,13 @@ public class MineSweeperApiImpl implements MineSweeperApi {
         this.gameRepository = gameRepository;
     }
 
-    public void createGame(int rows, int columns, int mines) {
+    public String createGame(int rows, int columns, int mines) {
         Game game = new Game(new Board(createRandomBoardDefinition(rows, columns, mines), rows, columns));
-        gameRepository.save(game);
+        return gameRepository.save(game) + "";
     }
 
     public void revealSquareAt(int row, int column, int gameId) {
-        Game game= gameRepository.findGameById(gameId);
+        Game game = gameRepository.findGameById(gameId);
         game.revealSquareAt(row, column);
     }
 
@@ -30,14 +34,21 @@ public class MineSweeperApiImpl implements MineSweeperApi {
     }
 
     public boolean isOver(int gameId) {
-        Game game= gameRepository.findGameById(gameId);
+        Game game = gameRepository.findGameById(gameId);
         return game.isOver();
     }
 
     @Override
     public void flagSquareAt(int row, int column, int gameId) {
-        Game game= gameRepository.findGameById(gameId);
+        Game game = gameRepository.findGameById(gameId);
         game.flagSquareAt(row, column);
+    }
+
+    @Override
+    public String getBoard(int gameId) {
+        Board board = gameRepository.findGameById(gameId).getBoard();
+        board.showAll();
+        return board.toString();
     }
 
 }

@@ -1,4 +1,4 @@
-package com.minesweeper;
+package com.minesweeper.model;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,8 +7,10 @@ public class GameRepository {
     private int id;
     private Map<Integer, Game> games = new HashMap<>();
 
-    public void save(Game game) {
-        games.put(id++, game);
+    public int save(Game game) {
+        int newId = id++;
+        games.put(newId, game);
+        return newId;
     }
 
     public Game findGameById(int id) {

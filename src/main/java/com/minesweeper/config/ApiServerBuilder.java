@@ -1,4 +1,4 @@
-package com.minesweeper;
+package com.minesweeper.config;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.cxf.Bus;

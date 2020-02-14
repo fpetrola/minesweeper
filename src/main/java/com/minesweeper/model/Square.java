@@ -1,4 +1,4 @@
-package com.minesweeper;
+package com.minesweeper.model;
 
 import java.util.Set;
 

@@ -1,5 +1,7 @@
 package com.minesweeper;
 
+import com.minesweeper.model.Board;
+import com.minesweeper.model.Game;
 import org.junit.Assert;
 import org.junit.Test;
 

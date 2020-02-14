@@ -1,4 +1,4 @@
-package com.minesweeper;
+package com.minesweeper.api;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -16,8 +16,8 @@ public interface MineSweeperApi {
     @Produces({"application/json"})
     @ApiOperation(value = "create game", tags = {"create",})
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "", response = Void.class)})
-    public void createGame(@PathParam("rows") int rows, @PathParam("columns") int columns, @PathParam("mines") int mines);
+            @ApiResponse(code = 200, message = "", response = String.class)})
+    public String createGame(@PathParam("rows") int rows, @PathParam("columns") int columns, @PathParam("mines") int mines);
 
     @GET
     @Path("/reveal-square/{gameId}/{row}/{column}")
@@ -44,5 +44,12 @@ public interface MineSweeperApi {
             @ApiResponse(code = 200, message = "", response = Void.class)})
     public void flagSquareAt(@PathParam("row") int row, @PathParam("column") int column, @PathParam("gameId") int gameId);
 
+    @GET
+    @Path("/board/{gameId}")
+    @Produces({"application/json"})
+    @ApiOperation(value = "board", tags = {"flag",})
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "", response = String.class)})
+    public String getBoard(@PathParam("gameId") int gameId);
 }
 

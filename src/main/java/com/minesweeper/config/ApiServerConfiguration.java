@@ -1,4 +1,4 @@
-package com.minesweeper;
+package com.minesweeper.config;
 
 import org.apache.cxf.bus.spring.SpringBus;
 import org.apache.cxf.transport.servlet.CXFServlet;

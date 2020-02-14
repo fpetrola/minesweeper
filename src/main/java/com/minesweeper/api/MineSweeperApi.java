@@ -47,7 +47,7 @@ public interface MineSweeperApi {
     @GET
     @Path("/board/{gameId}")
     @Produces({"application/text"})
-    @ApiOperation(value = "board", tags = {"flag",})
+    @ApiOperation(value = "board", tags = {"board",})
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "", response = String.class)})
     public String getBoard(@PathParam("gameId") int gameId);

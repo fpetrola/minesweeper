@@ -46,7 +46,7 @@ public interface MineSweeperApi {
 
     @GET
     @Path("/board/{gameId}")
-    @Produces({"application/json"})
+    @Produces({"application/text"})
     @ApiOperation(value = "board", tags = {"flag",})
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "", response = String.class)})

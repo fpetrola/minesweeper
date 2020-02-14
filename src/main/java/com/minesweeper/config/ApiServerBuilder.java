@@ -80,6 +80,8 @@ public class ApiServerBuilder {
 		factory.setAddress(basePath);
 
 		Swagger2Feature swagger2Feature = new Swagger2Feature();
+		swagger2Feature.setTitle("MineSweeper Demo Application");
+		swagger2Feature.setDescription("MineSweeper");
 		swagger2Feature.setResourcePackage(jaxrsClassesPackagePrefix);
 		factory.setFeatures(Arrays.asList(swagger2Feature));
 

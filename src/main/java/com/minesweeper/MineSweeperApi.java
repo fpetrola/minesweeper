@@ -12,12 +12,12 @@ import javax.ws.rs.*;
 public interface MineSweeperApi {
 
     @GET
-    @Path("/create/{rows}/{columns}")
+    @Path("/create/{rows}/{columns}/{mines}")
     @Produces({"application/json"})
     @ApiOperation(value = "create game", tags = {"create",})
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "", response = Void.class)})
-    public void createGame(@PathParam("rows") int rows, @PathParam("columns") int columns);
+    public void createGame(@PathParam("rows") int rows, @PathParam("columns") int columns, @PathParam("mines") int mines);
 
     @GET
     @Path("/reveal-square/{gameId}/{row}/{column}")

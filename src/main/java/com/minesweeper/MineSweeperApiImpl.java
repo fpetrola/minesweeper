@@ -9,8 +9,8 @@ public class MineSweeperApiImpl implements MineSweeperApi {
         this.gameRepository = gameRepository;
     }
 
-    public void createGame(int rows, int columns) {
-        Game game = new Game(new Board(createRandomBoardDefinition(rows, columns), rows, columns));
+    public void createGame(int rows, int columns, int mines) {
+        Game game = new Game(new Board(createRandomBoardDefinition(rows, columns, mines), rows, columns));
         gameRepository.save(game);
     }
 
@@ -19,11 +19,11 @@ public class MineSweeperApiImpl implements MineSweeperApi {
         game.revealSquareAt(row, column);
     }
 
-    private String createRandomBoardDefinition(int rows, int columns) {
+    private String createRandomBoardDefinition(int rows, int columns, int mines) {
         char[] array = new char[rows * columns];
         Arrays.fill(array, '.');
         StringBuilder s = new StringBuilder(new String(array));
-        for (int i = 0; i < Math.random() * rows * columns / 3; i++) {
+        for (int i = 0; i < mines; i++) {
             s.setCharAt((int) (Math.random() * rows * columns), 'X');
         }
         return s.toString();

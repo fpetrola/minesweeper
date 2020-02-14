@@ -62,4 +62,8 @@ public class Board {
     public void showAll() {
         squares.stream().forEach(s -> s.show());
     }
+
+    public int getColumns() {
+        return columns;
+    }
 }

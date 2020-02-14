@@ -47,7 +47,14 @@ public class MineSweeperApiImpl implements MineSweeperApi {
     @Override
     public String getBoard(int gameId) {
         Board board = gameRepository.findGameById(gameId).getBoard();
-        return board.toString();
+        StringBuilder stringBuilder = new StringBuilder(board.toString());
+        int index= stringBuilder.length();
+        while (index >= 0)
+        {
+            stringBuilder.insert(index, '\n');
+            index-=board.getColumns();
+        }
+        return stringBuilder.toString();
     }
 
 }
